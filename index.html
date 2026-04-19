@@ -31,7 +31,7 @@
     .colaborar-box { background: rgba(0, 255, 213, 0.03); border: 1px dashed #00ffd5; padding: 40px; border-radius: 20px; text-align: center; }
     .alias-badge { display: inline-block; background: #1c1c1c; padding: 10px 20px; border-radius: 8px; border: 1px solid #00ffd5; margin: 15px 0; font-family: monospace; color: #00ffd5; font-size: 1.2rem; }
     
-    .footer { text-align: center; padding: 60px; background: #000; font-size: 0.9rem; border-top: 1px solid #222; }
+    .footer { text-align: center; padding: 60px; background: #000; font-size: 0.95rem; border-top: 1px solid #222; letter-spacing: 1px; }
     .footer a { color: #00ffd5; text-decoration: none; }
     
     @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
@@ -55,13 +55,13 @@
     <div class="cards">
       <div class="card">
         <h3>Eskalómetro</h3>
-        <p>Desarrollo del reconocimiento tonal y entrenamiento auditivo sobre escalas y modos.</p>
-        <a href="https://entrenadordeescalasklau1966.netlify.app/" target="_blank" class="btn">Abrir Herramienta</a>
+        <p>Entrenador auditivo interactivo de reconocimiento de escalas y modos.</p>
+        <a href="https://entrenadordeescalasklau1966.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Abrir Herramienta</a>
       </div>
       <div class="card">
         <h3>Kantómetro</h3>
-        <p>Entrenador interactivo de lectura musical cantada con detección de frecuencia en tiempo real.</p>
-        <a href="https://kantometroklau1966.netlify.app/" target="_blank" class="btn">Abrir Herramienta</a>
+        <p>Entrenador auditivo interactivo de lectura musical cantada, con detección de frecuencias en tiempo real.</p>
+        <a href="https://kantometroklau1966.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Abrir Herramienta</a>
       </div>
     </div>
   </div>
@@ -70,10 +70,12 @@
 <section class="section alt">
   <div class="container">
     <h2>Material Académico</h2>
-    <div style="max-width: 650px;">
-      <h3>Audioperceptiva</h3>
-      <p style="opacity: 0.5; font-style: italic;">Enseñar y Aprender Música en el Siglo XXI</p>
-      <p style="margin: 25px 0; opacity: 0.8;">Este texto desarrolla los fundamentos pedagógicos del laboratorio, integrando la tecnología a la práctica musical académica.</p>
+    <div style="max-width: 700px;">
+      <h3 style="color: #00ffd5; font-size: 1.8rem; margin-bottom: 5px;">Audioperceptiva</h3>
+      <p style="opacity: 0.6; font-style: italic; margin-bottom: 20px;">Enseñar y Aprender Música en el Siglo XXI</p>
+      <p style="margin-bottom: 25px; opacity: 0.9;">
+        Este texto desarrolla los fundamentos pedagógicos de Audioperceptiva, abordando aspectos del entrenamiento, la práctica y la ejercitación para la formación de músicos profesionales.
+      </p>
       <a href="fragmento-libro.pdf" download class="btn">📖 Descargar Fragmento (PDF)</a>
     </div>
   </div>
@@ -92,23 +94,22 @@
           Como <strong>especialista en Audioperceptiva y Creación Musical</strong>, su trabajo integra procesos de escucha analítica con la composición y el uso de nuevas tecnologías.
         </p>
         <p style="opacity: 0.8; margin-bottom: 20px;">
-          Este laboratorio es el resultado de una investigación continua sobre cómo la conciencia sonora y el oído interno pueden potenciarse mediante herramientas digitales interactivas, facilitando un aprendizaje constructivista y profundo.
+          Este laboratorio es el resultado de una investigación continua sobre cómo la conciencia sonora y el oído interno pueden potenciarse mediante herramientas digitales interactivas.
         </p>
         <p style="opacity: 0.8;">
-          Su labor en la Facultad de Artes busca tender puentes entre la tradición académica y los nuevos paradigmas tecnológicos del siglo XXI.
+          Su labor en la Facultad de Artes busca tender puentes entre la tradición académica y los nuevos paradigmas tecnológicos.
         </p>
       </div>
 
       <div class="colaborar-box">
         <h3 style="color: #f5f5f5; margin-bottom: 15px;">Sostenibilidad</h3>
         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">
-          Este espacio es abierto y gratuito. Tu colaboración voluntaria permite financiar el desarrollo de nuevas tecnologías aplicadas a la educación musical.
+          Tu colaboración voluntaria permite financiar el desarrollo de nuevas herramientas para la educación musical.
         </p>
         <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5;">Transferencia (Banco Nación):</p>
         <div class="alias-badge">musicamusicoklau</div>
-        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 10px;">Claudio G. Bazán</p>
-        <p style="font-size: 0.9rem; margin-top: 20px;">
-          Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: #00ffd5;">claudiobazanunc@gmail.com</a>
+        <p style="font-size: 0.9rem; margin-top: 15px;">
+          Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: #00ffd5; text-decoration: none;">claudiobazanunc@gmail.com</a>
         </p>
       </div>
 
@@ -117,11 +118,10 @@
 </section>
 
 <footer class="footer">
-  <p>© 2026 Audioperceptiva Lab — Facultad de Artes, UNC</p>
+  <p>© 2026 Audioperceptiva Lab — Claudio Gustavo Bazán - FA UNC -</p>
 </footer>
 
 <script>
-  // Script para que el botón "Explorar herramientas" baje suavemente
   document.querySelector('a[href^="#"]').addEventListener('click', function(e) {
     e.preventDefault();
     document.querySelector(this.getAttribute('href')).scrollIntoView({
