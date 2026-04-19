@@ -10,7 +10,7 @@
     body { background: #0f0f0f; color: #f5f5f5; line-height: 1.6; }
     .container { width: 90%; max-width: 1000px; margin: auto; }
     
-    /* SECCIÓN DE CABECERA CON LOGO */
+    /* CABECERA CON SÍMBOLO Y NOMBRE */
     .hero { 
         height: 100vh; 
         display: flex; 
@@ -21,21 +21,28 @@
         background: radial-gradient(circle at center, #1a1a1a, #000); 
     }
     
-    .hero-logo {
-        max-width: 180px; /* Tamaño sugerido por Sofía, ajustalo si querés */
+    .hero-symbol {
+        max-width: 120px; /* Tamaño del símbolo solo */
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         filter: drop-shadow(0 0 15px rgba(0,255,213,0.4));
     }
 
-    .tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; color: #00ffd5; margin-bottom: 10px; }
+    .hero h1 { 
+        font-size: 3rem; 
+        color: #00ffd5; 
+        text-shadow: 0 0 20px rgba(0,255,213,0.6);
+        margin-bottom: 5px;
+    }
+
+    .tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; color: #00ffd5; margin-bottom: 20px; }
     
     /* SECCIONES */
     .section { padding: 100px 0; }
     .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: #00ffd5; border-left: 4px solid #00ffd5; padding-left: 20px; }
     .alt { background: #141414; }
     
-    /* TARJETAS DE APPS */
+    /* TARJETAS */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
     .card { background: #1c1c1c; padding: 30px; border-radius: 12px; transition: 0.3s; border: 1px solid rgba(0,255,213,0.1); }
     .card:hover { transform: translateY(-5px); border-color: #00ffd5; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
@@ -45,14 +52,13 @@
     .btn { display: inline-block; padding: 12px 28px; background: #00ffd5; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; border: none; font-size: 0.95rem; cursor: pointer; }
     .btn:hover { background: #00c2a3; transform: scale(1.02); }
     
-    /* BLOQUE DE COLABORACIÓN */
+    /* COLABORACIÓN */
     .colaborar-box { background: rgba(0, 255, 213, 0.03); border: 1px dashed #00ffd5; padding: 40px; border-radius: 20px; text-align: center; }
     .alias-badge { display: inline-block; background: #1c1c1c; padding: 10px 20px; border-radius: 8px; border: 1px solid #00ffd5; margin: 15px 0; font-family: monospace; color: #00ffd5; font-size: 1.2rem; }
     
-    /* PIE DE PÁGINA */
     .footer { text-align: center; padding: 60px; background: #000; font-size: 0.95rem; border-top: 1px solid #222; }
     
-    @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
+    @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero-symbol { max-width: 90px; } }
   </style>
 </head>
 
@@ -60,7 +66,9 @@
 
 <header class="hero">
   <div class="container">
-    <img src="logo.jpg" alt="Logo Audioperceptiva Lab" class="hero-logo">
+    <img src="logo.jpg" alt="Símbolo Audioperceptiva Lab" class="hero-symbol">
+    
+    <h1>Audioperceptiva Lab</h1>
     
     <p class="tag">Investigación • Percepción • Sonido</p>
     <p style="margin: 20px 0; opacity: 0.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
@@ -115,17 +123,14 @@
           Como <strong>especialista en Audioperceptiva y Creación Musical</strong>, su trabajo integra procesos de escucha analítica con la composición y el uso de nuevas tecnologías.
         </p>
         <p style="opacity: 0.8; margin-bottom: 20px;">
-          Este laboratorio es el resultado de una investigación continua sobre cómo la conciencia sonora y el oído interno pueden potenciarse mediante herramientas digitales interactivas, facilitando un aprendizaje constructivista y profundo.
-        </p>
-        <p style="opacity: 0.8;">
-          Su labor en la Facultad de Artes busca tender puentes entre la tradición académica y los nuevos paradigmas tecnológicos del siglo XXI.
+          Este laboratorio es el resultado de una investigación continua sobre cómo la conciencia sonora y el oído interno pueden potenciarse mediante herramientas digitales interactivas.
         </p>
       </div>
 
       <div class="colaborar-box">
         <h3 style="color: #f5f5f5; margin-bottom: 15px;">Sostenibilidad</h3>
         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">
-          Este espacio es abierto y gratuito. Tu colaboración voluntaria permite financiar el desarrollo de nuevas tecnologías aplicadas a la educación musical.
+          Tu colaboración voluntaria permite financiar el desarrollo de nuevas tecnologías aplicadas a la educación musical.
         </p>
         <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5;">Transferencia (Banco Nación):</p>
         <div class="alias-badge">musicamusicoklau</div>
@@ -143,7 +148,6 @@
 </footer>
 
 <script>
-  // Suavizado de scroll
   document.querySelector('a[href^="#"]').addEventListener('click', function(e) {
     e.preventDefault();
     document.querySelector(this.getAttribute('href')).scrollIntoView({
