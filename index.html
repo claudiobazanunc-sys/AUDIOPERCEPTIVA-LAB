@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-62GWCY93FB"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-62GWCY93FB"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -78,28 +77,26 @@
     /* INFO PERFIL */
     .alias-badge { display: inline-block; background: #1c1c1c; padding: 12px 25px; border-radius: 8px; border: 1px solid var(--esmeralda); margin: 15px 0; color: var(--esmeralda); font-family: monospace; font-size: 1.4rem; }
     .footer { text-align: center; padding: 60px; background: #000; border-top: 1px solid #222; }
-    /* Contenedor sutil y minimalista */
-.counter-container {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    color: #666; /* Gris oscuro para el texto "Visitas" */
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-align: center;
-    margin-top: 50px;
-    padding: 15px;
-}
+    
+    .counter-container {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        color: #666;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 50px;
+        padding: 15px;
+    }
 
-/* El número esmeralda con efecto Glow */
-#visitas {
-    color: #50C878; /* Esmeralda */
-    font-weight: bold;
-    margin-left: 8px;
-    /* Efecto de resplandor */
-    text-shadow: 0 0 5px rgba(80, 200, 120, 0.4), 
-                 0 0 10px rgba(80, 200, 120, 0.2);
-    font-family: 'Courier New', monospace;
-}
+    #visitas {
+        color: #50C878;
+        font-weight: bold;
+        margin-left: 8px;
+        text-shadow: 0 0 5px rgba(80, 200, 120, 0.4), 
+                     0 0 10px rgba(80, 200, 120, 0.2);
+        font-family: 'Courier New', monospace;
+    }
   </style>
 </head>
 
@@ -158,6 +155,14 @@
         <h2 style="color: var(--esmeralda)">AcordeLab</h2>
         <p class="detalle-texto">Diseñado para la detección de <strong>acordes yuxtapuestos sin lógica tonal</strong>. Se centra en la identificación de la fundamental y la cualidad del acorde en contextos de armonía no funcional.</p>
       </article>
+      <article class="tarjeta-pedagogia">
+        <h2 style="color: var(--esmeralda)">Mozart Lab</h2>
+        <p class="detalle-texto">Entrenamiento auditivo para la detección y corrección de alturas intrusas en contextos melódicos.</p>
+      </article>
+      <article class="tarjeta-pedagogia">
+        <h2 style="color: var(--esmeralda)">Armonía Funcional</h2>
+        <p class="detalle-texto">Entrenamiento auditivo orientada al reconocimiento de grados en contexto tonal y sus funciones armónicas.</p>
+      </article>
     </div>
   </div>
 </div>
@@ -180,6 +185,16 @@
         <h3>AcordeLab</h3>
         <p>Laboratorio para el reconocimiento de acordes yuxtapuestos y entrenamiento auditivo vertical.</p>
         <a href="https://akordelab.netlify.app/" target="_blank" class="btn">Abrir</a>
+      </div>
+      <div class="card">
+        <h3>Mozart Lab</h3>
+        <p>Entrenamiento auditivo para la detección y corrección de alturas intrusas en contextos melódicos.</p>
+        <a href="https://mozartlabescucharycorregir.netlify.app/" target="_blank" class="btn">Abrir</a>
+      </div>
+      <div class="card">
+        <h3>Armonía Funcional</h3>
+        <p>Entrenamiento auditivo orientada al reconocimiento de grados en contexto tonal y sus funciones armónicas.</p>
+        <a href="https://armoniafuncionalseisgradosok.netlify.app/" target="_blank" class="btn">Abrir</a>
       </div>
     </div>
   </div>
@@ -227,21 +242,16 @@
   }
 </script>
 <script>
-  
-  // Usamos una clave específica para tu proyecto
   const namespace = "audioperceptiva-lab-v1";
   const key = "visitas-totales";
 
-  // Usamos Abacus, la alternativa gratuita a CountAPI (nota las comillas invertidas ` )
   fetch(`https://abacus.jasoncameron.dev/hit/${namespace}/${key}`)
       .then(response => response.json())
       .then(data => {
-          // Formateo a 4 dígitos para mantener la estética minimalista
           const count = data.value.toString().padStart(4, '0');
           document.getElementById('visitas').innerText = count;
       })
       .catch(() => {
-          // Si la API no responde, mostramos un guión elegante
           document.getElementById('visitas').innerText = "----";
       });
 </script>
