@@ -78,6 +78,28 @@
     /* INFO PERFIL */
     .alias-badge { display: inline-block; background: #1c1c1c; padding: 12px 25px; border-radius: 8px; border: 1px solid var(--esmeralda); margin: 15px 0; color: var(--esmeralda); font-family: monospace; font-size: 1.4rem; }
     .footer { text-align: center; padding: 60px; background: #000; border-top: 1px solid #222; }
+    /* Contenedor sutil y minimalista */
+.counter-container {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #666; /* Gris oscuro para el texto "Visitas" */
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 50px;
+    padding: 15px;
+}
+
+/* El número esmeralda con efecto Glow */
+#visitas {
+    color: #50C878; /* Esmeralda */
+    font-weight: bold;
+    margin-left: 8px;
+    /* Efecto de resplandor */
+    text-shadow: 0 0 5px rgba(80, 200, 120, 0.4), 
+                 0 0 10px rgba(80, 200, 120, 0.2);
+    font-family: 'Courier New', monospace;
+}
   </style>
 </head>
 
@@ -183,6 +205,10 @@
 
 <footer class="footer">
   <p>© 2026 Audioperceptiva Lab — Claudio G. Bazán — FA UNC</p>
+  <div class="counter-container">
+    <span>Visitas</span>
+    <span id="visitas">0000</span>
+</div>
 </footer>
 
 <script>
@@ -200,6 +226,22 @@
     }
   }
 </script>
+<script>
+    // Usamos una clave específica para tu proyecto
+    const namespace = "audioperceptiva-lab-v1";
+    const key = "visitas-totales";
 
+    fetch(https://api.countapi.xyz/hit/${namespace}/${key})
+        .then(response => response.json())
+        .then(data => {
+            // Formateo a 4 dígitos para mantener la estética minimalista
+            const count = data.value.toString().padStart(4, '0');
+            document.getElementById('visitas').innerText = count;
+        })
+        .catch(() => {
+            // Si la API no responde, mostramos un guión elegante
+            document.getElementById('visitas').innerText = "----";
+        });
+</script>
 </body>
 </html>
