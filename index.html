@@ -211,7 +211,88 @@
     </div>
   </div>
 </div>
+<div class="audioperceptiva-ui-container" style="margin-top: -20px;">
+  <button id="abrirModalInst" class="boton-pedagogia-trigger">
+    🚀 GUÍA RÁPIDA DE USO - <span style="text-decoration: underline;">ABRIR</span>
+  </button>
+</div>
 
+<div id="modalInstrucciones" class="overlay-pedagogia">
+  <div class="ventana-pedagogia">
+    <button id="cerrarModalInst" class="boton-cerrar-x">&times;</button>
+    
+    <header class="encabezado-pedagogia">
+      <h1>GUÍA RÁPIDA DE USO</h1>
+      <div class="divisor-neon"></div>
+      <p class="introduccion-texto">
+        Breve protocolo técnico para operar las herramientas del laboratorio de manera efectiva.
+      </p>
+    </header>
+
+    <div class="cuadricula-pedagogia">
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">APP 01</div>
+        <h2>Eskalómetro</h2>
+        <p class="descripcion-principal">Reconocimiento analítico de estructuras.</p>
+        <div class="lista-detalles">
+          <p><span class="etiqueta-v">PASOS:</span></p>
+          <p class="detalle-texto">1. Seleccioná tónica y modo. <br> 2. Escuchá la secuencia del piano virtual. <br> 3. Identificá visualmente las alturas iluminadas.</p>
+        </div>
+      </article>
+
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">APP 02</div>
+        <h2>Kantómetro</h2>
+        <p class="descripcion-principal">Afinación vocal en tiempo real.</p>
+        <div class="lista-detalles">
+          <p><span class="etiqueta-v">PASOS:</span></p>
+          <p class="detalle-texto">1. Activá el micrófono. <br> 2. Usá el botón "Oír" para referencia. <br> 3. Cantá la nota; el medidor te indicará la precisión en Hz.</p>
+        </div>
+      </article>
+
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">APP 03</div>
+        <h2>AcordeLab</h2>
+        <p class="descripcion-principal">Entrenamiento de la escucha vertical.</p>
+        <div class="lista-detalles">
+          <p><span class="etiqueta-v">PASOS:</span></p>
+          <p class="detalle-texto">1. Elegí nivel de complejidad. <br> 2. Escuchá el bloque armónico. <br> 3. Determiná la cualidad (Mayor/Menor/Aumentado).</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Lógica para el segundo modal (Instrucciones)
+  (function() {
+    const modalInst = document.getElementById("modalInstrucciones");
+    const btnAbrirInst = document.getElementById("abrirModalInst");
+    const btnCerrarInst = document.getElementById("cerrarModalInst");
+
+    if (btnAbrirInst) {
+      btnAbrirInst.onclick = function() {
+        modalInst.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    if (btnCerrarInst) {
+      btnCerrarInst.onclick = function() {
+        modalInst.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Cerrar al hacer clic afuera
+    window.addEventListener('click', function(event) {
+      if (event.target == modalInst) {
+        modalInst.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  })();
+</script>
 <section id="apps" class="section">
   <div class="container">
     <h2>Aplicaciones</h2>
