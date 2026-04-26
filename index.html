@@ -6,11 +6,19 @@
   <title>Audioperceptiva Lab | Claudio G. Bazán</title>
   
   <style>
+    /* VARIABLES DE COLOR UNIFICADAS */
+    :root {
+      --esmeralda: #00ffd5; /* El color de tu logo y marca */
+      --fondo-oscuro: #0f0f0f;
+      --card-bg: #1c1c1c;
+      --blanco-suave: #f5f5f5;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background: #0f0f0f; color: #f5f5f5; line-height: 1.6; }
+    body { background: var(--fondo-oscuro); color: var(--blanco-suave); line-height: 1.6; }
     .container { width: 90%; max-width: 1000px; margin: auto; }
     
-    /* CABECERA CON SÍMBOLO Y NOMBRE */
+    /* CABECERA (HERO) */
     .hero { 
         height: 100vh; 
         display: flex; 
@@ -22,7 +30,7 @@
     }
     
     .hero-symbol {
-        max-width: 120px; /* Tamaño del símbolo solo */
+        max-width: 120px;
         height: auto;
         margin-bottom: 10px;
         filter: drop-shadow(0 0 15px rgba(0,255,213,0.4));
@@ -30,35 +38,102 @@
 
     .hero h1 { 
         font-size: 3rem; 
-        color: #00ffd5; 
+        color: var(--esmeralda); 
         text-shadow: 0 0 20px rgba(0,255,213,0.6);
         margin-bottom: 5px;
     }
 
-    .tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; color: #00ffd5; margin-bottom: 20px; }
+    .tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; color: var(--esmeralda); margin-bottom: 20px; }
     
-    /* SECCIONES */
+    /* SECCIONES GENERALES */
     .section { padding: 100px 0; }
-    .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: #00ffd5; border-left: 4px solid #00ffd5; padding-left: 20px; }
+    .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: var(--esmeralda); border-left: 4px solid var(--esmeralda); padding-left: 20px; }
     .alt { background: #141414; }
     
-    /* TARJETAS */
+    /* TARJETAS DE APPS */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    .card { background: #1c1c1c; padding: 30px; border-radius: 12px; transition: 0.3s; border: 1px solid rgba(0,255,213,0.1); }
-    .card:hover { transform: translateY(-5px); border-color: #00ffd5; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .card h3 { color: #00ffd5; margin-bottom: 15px; }
+    .card { background: var(--card-bg); padding: 30px; border-radius: 12px; transition: 0.3s; border: 1px solid rgba(0,255,213,0.1); }
+    .card:hover { transform: translateY(-5px); border-color: var(--esmeralda); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .card h3 { color: var(--esmeralda); margin-bottom: 15px; }
     
     /* BOTONES */
-    .btn { display: inline-block; padding: 12px 28px; background: #00ffd5; color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; border: none; font-size: 0.95rem; cursor: pointer; }
+    .btn { display: inline-block; padding: 12px 28px; background: var(--esmeralda); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; border: none; font-size: 0.95rem; cursor: pointer; }
     .btn:hover { background: #00c2a3; transform: scale(1.02); }
-    
-    /* COLABORACIÓN */
-    .colaborar-box { background: rgba(0, 255, 213, 0.03); border: 1px dashed #00ffd5; padding: 40px; border-radius: 20px; text-align: center; }
-    .alias-badge { display: inline-block; background: #1c1c1c; padding: 10px 20px; border-radius: 8px; border: 1px solid #00ffd5; margin: 15px 0; font-family: monospace; color: #00ffd5; font-size: 1.2rem; }
-    
+
+    /* --- ESTILOS ESPECÍFICOS DEL MODAL PEDAGÓGICO --- */
+    .audioperceptiva-ui-container { text-align: center; margin: 50px 0; }
+
+    .boton-pedagogia-trigger {
+      background: transparent;
+      color: var(--esmeralda);
+      border: 1px solid var(--esmeralda);
+      padding: 18px 40px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .boton-pedagogia-trigger:hover {
+      background: var(--esmeralda);
+      color: #000;
+      box-shadow: 0 0 25px rgba(0, 255, 213, 0.4);
+    }
+
+    .overlay-pedagogia {
+      display: none;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.97);
+      z-index: 10000;
+      overflow-y: auto;
+      backdrop-filter: blur(10px);
+    }
+
+    .ventana-pedagogia {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #050505;
+      border: 1px solid #222;
+      padding: 60px 40px;
+      position: relative;
+      color: #fff;
+    }
+
+    .boton-cerrar-x {
+      position: absolute; top: 20px; right: 30px;
+      background: none; border: none; color: var(--esmeralda);
+      font-size: 3rem; cursor: pointer;
+    }
+
+    .encabezado-pedagogia h1 { color: var(--esmeralda); letter-spacing: 4px; font-size: 1.8rem; margin: 0; }
+    .divisor-neon { width: 70px; height: 3px; background: var(--esmeralda); margin: 25px 0; }
+    .introduccion-texto { color: #bbb; font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin-bottom: 40px; }
+
+    .cuadricula-pedagogia { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+    .tarjeta-pedagogia {
+      background: #0a0a0a;
+      padding: 30px;
+      border: 1px solid #1a1a1a;
+      border-top: 2px solid var(--esmeralda);
+    }
+
+    .indicador-etapa { color: var(--esmeralda); font-family: monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; opacity: 0.6; }
+    .tarjeta-pedagogia h2 { color: var(--esmeralda); margin: 0; font-size: 1.7rem; }
+    .sub-etapa { color: #777; font-size: 0.8rem; text-transform: uppercase; margin: 5px 0 20px 0; letter-spacing: 1px; }
+    .descripcion-principal { font-weight: 600; line-height: 1.5; margin-bottom: 25px; color: #fff; }
+
+    .etiqueta-v { color: var(--esmeralda); font-size: 0.75rem; font-weight: bold; display: block; margin-bottom: 3px; }
+    .detalle-texto { color: #aaa; font-size: 0.95rem; margin-bottom: 15px; }
+
+    /* COLABORACIÓN Y FOOTER */
+    .colaborar-box { background: rgba(0, 255, 213, 0.03); border: 1px dashed var(--esmeralda); padding: 40px; border-radius: 20px; text-align: center; }
+    .alias-badge { display: inline-block; background: #1c1c1c; padding: 10px 20px; border-radius: 8px; border: 1px solid var(--esmeralda); margin: 15px 0; font-family: monospace; color: var(--esmeralda); font-size: 1.2rem; }
     .footer { text-align: center; padding: 60px; background: #000; font-size: 0.95rem; border-top: 1px solid #222; }
-    
-    @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero-symbol { max-width: 90px; } }
+
+    @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .hero-symbol { max-width: 90px; } .ventana-pedagogia { margin: 20px; padding: 40px 20px; } }
   </style>
 </head>
 
@@ -66,10 +141,8 @@
 
 <header class="hero">
   <div class="container">
-    <img src="logo.jpg" alt="Símbolo Audioperceptiva Lab" class="hero-symbol">
-    
+    <img src="logo.jpg" alt="Logo Audioperceptiva Lab" class="hero-symbol">
     <h1>Audioperceptiva Lab</h1>
-    
     <p class="tag">Investigación • Percepción • Sonido</p>
     <p style="margin: 20px 0; opacity: 0.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
         Plataforma de exploración y entrenamiento auditivo digital.
@@ -77,177 +150,68 @@
     <a href="#apps" class="btn">Explorar Herramientas</a>
   </div>
 </header>
-<div class="audioperceptiva-container">
-  <button id="btnEnfoquePedagogico" class="boton-cyber-pedagogia">
-    🎹 NUESTRA CONCEPCIÓN PEDAGÓGICA - <span class="subrayado">ABRIR</span>
+
+<div class="audioperceptiva-ui-container">
+  <button id="abrirModalPed" class="boton-pedagogia-trigger">
+    🎹 NUESTRA CONCEPCIÓN PEDAGÓGICA - <span style="text-decoration: underline;">ABRIR</span>
   </button>
 </div>
 
 <div id="modalPedagogia" class="overlay-pedagogia">
   <div class="ventana-pedagogia">
-    <button id="cerrarPedagogia" class="boton-cerrar-x">&times;</button>
+    <button id="cerrarModalPed" class="boton-cerrar-x">&times;</button>
     
     <header class="encabezado-pedagogia">
-      <h1>🎹 NUESTRA CONCEPCIÓN PEDAGÓGICA</h1>
+      <h1>NUESTRA CONCEPCIÓN PEDAGÓGICA</h1>
       <div class="divisor-neon"></div>
       <p class="introduccion-texto">
-        En <strong>Audioperceptiva Lab</strong>, no solo construimos herramientas digitales; proponemos un camino de maduración musical dividido en tres etapas fundamentales.
+        En <strong>Audioperceptiva Lab</strong>, proponemos un camino de maduración musical dividido en tres etapas fundamentales.
       </p>
     </header>
 
     <div class="cuadricula-pedagogia">
       <article class="tarjeta-pedagogia">
-        <div class="indicador-etapa">1</div>
+        <div class="indicador-etapa">01</div>
         <h2>Entrenar</h2>
         <h3 class="sub-etapa">(La Base Pre-musical)</h3>
-        <p class="descripcion-principal">El entrenamiento es la preparación necesaria para mejorar el desarrollo de cualquier actividad. Aquí abordamos contenidos pre-musicales indispensables.</p>
+        <p class="descripcion-principal">Preparación necesaria para mejorar el desarrollo de cualquier actividad. Cimientos indispensables.</p>
         <div class="lista-detalles">
-          <p><span class="etiqueta-verde">EN LA PRÁCTICA:</span> Cantar escalas, memorizar células rítmicas o reconocer acordes de forma aislada, etc.</p>
-          <p><span class="etiqueta-verde">EL OBJETIVO:</span> Construir una base sólida que nos permita acceder a instancias musicales con solvencia.</p>
-          <p><span class="etiqueta-verde">FILOSOFÍA:</span> El entrenamiento sucede mejor fuera del aula, permitiendo que el tiempo de encuentro docente-estudiante se reserve para trabajar con música real.</p>
+          <p><span class="etiqueta-v">EN LA PRÁCTICA:</span></p>
+          <p class="detalle-texto">Cantar escalas, memorizar células rítmicas o reconocer acordes aislados.</p>
+          <p><span class="etiqueta-v">EL OBJETIVO:</span></p>
+          <p class="detalle-texto">Construir una base sólida para acceder a la música con solvencia.</p>
         </div>
       </article>
 
       <article class="tarjeta-pedagogia">
-        <div class="indicador-etapa">2</div>
+        <div class="indicador-etapa">02</div>
         <h2>Practicar</h2>
         <h3 class="sub-etapa">(Hacer Música)</h3>
-        <p class="descripcion-principal">Llamamos práctica al trabajo con contenidos musicales dentro de las áreas de experiencia propiamente dichas. Practicar es, sencillamente, hacer música.</p>
+        <p class="descripcion-principal">Trabajo con contenidos musicales vivos. Practicar es, sencillamente, hacer música.</p>
         <div class="lista-detalles">
-          <p><span class="etiqueta-verde">EN LA PRÁCTICA:</span> Crear, improvisar, cantar, tocar y escribir utilizando obras del repertorio universal o creaciones de los propios estudiantes.</p>
-          <p><span class="etiqueta-verde">EL OBJETIVO:</span> Abordar las métricas y estructuras a través de la vivencia artística. Lectura melódica significativa, improvisación, etc.</p>
+          <p><span class="etiqueta-v">EN LA PRÁCTICA:</span></p>
+          <p class="detalle-texto">Crear, improvisar y tocar utilizando obras del repertorio universal o propio.</p>
+          <p><span class="etiqueta-v">EL OBJETIVO:</span></p>
+          <p class="detalle-texto">Abordar las métricas y estructuras a través de la vivencia artística significativa.</p>
         </div>
       </article>
 
       <article class="tarjeta-pedagogia">
-        <div class="indicador-etapa">3</div>
+        <div class="indicador-etapa">03</div>
         <h2>Ejercitar</h2>
         <h3 class="sub-etapa">(El Universo Sonoro)</h3>
-        <p class="descripcion-principal">Es el punto cúspide donde trabajamos con música compuesta por artistas. El entrenamiento y la práctica están al servicio de la ejercitación.</p>
+        <p class="descripcion-principal">Punto cúspide: trabajo con música real. El entrenamiento está al servicio de la ejercitación.</p>
         <div class="lista-detalles">
-          <p><span class="etiqueta-verde">EL DESAFÍO:</span> La música real no fue concebida como "ejercicio"; su complejidad es el universo que aspiramos desentrañar.</p>
-          <p><span class="etiqueta-verde">EN LA PRÁCTICA:</span> Dictados, discriminación auditiva de timbres/texturas y análisis auditivo. Evaluación de la memoria sonora y musical.</p>
+          <p><span class="etiqueta-v">EL DESAFÍO:</span></p>
+          <p class="detalle-texto">Desentrañar la complejidad del universo sonoro real compuesto por artistas.</p>
+          <p><span class="etiqueta-v">EN LA PRÁCTICA:</span></p>
+          <p class="detalle-texto">Dictados, discriminación tímbrica y evaluación de la memoria musical.</p>
         </div>
       </article>
     </div>
   </div>
 </div>
 
-<style>
-  :root {
-    --fluo: #00ff41;
-    --oscuro: #050505;
-    --gris-claro: #d1d1d1;
-    --blanco: #ffffff;
-  }
-
-  .audioperceptiva-container { text-align: center; margin: 40px 0; font-family: sans-serif; }
-
-  .boton-cyber-pedagogia {
-    background: #000;
-    color: var(--fluo);
-    border: 1px solid var(--fluo);
-    padding: 18px 40px;
-    font-family: 'Courier New', monospace;
-    font-weight: bold;
-    font-size: 1rem;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
-  }
-
-  .boton-cyber-pedagogia:hover {
-    background: var(--fluo);
-    color: #000;
-    box-shadow: 0 0 25px var(--fluo);
-  }
-
-  .boton-cyber-pedagogia .subrayado { text-decoration: underline; }
-
-  .overlay-pedagogia {
-    display: none;
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.96);
-    z-index: 10000;
-    overflow-y: auto;
-    backdrop-filter: blur(10px);
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-  }
-
-  .ventana-pedagogia {
-    max-width: 1150px;
-    margin: 40px auto;
-    background: var(--oscuro);
-    border: 1px solid #222;
-    padding: 60px 40px;
-    position: relative;
-    color: var(--blanco);
-  }
-
-  .boton-cerrar-x {
-    position: absolute; top: 20px; right: 30px;
-    background: none; border: none; color: var(--fluo);
-    font-size: 3rem; cursor: pointer;
-  }
-
-  .encabezado-pedagogia h1 { color: var(--fluo); letter-spacing: 5px; font-size: 1.8rem; margin: 0; }
-  .divisor-neon { width: 80px; height: 3px; background: var(--fluo); margin: 25px 0; }
-  .introduccion-texto { color: var(--gris-claro); font-size: 1.1rem; line-height: 1.6; max-width: 850px; margin-bottom: 40px; }
-
-  .cuadricula-pedagogia {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-  }
-
-  .tarjeta-pedagogia {
-    background: #111;
-    padding: 30px;
-    border: 1px solid #222;
-    border-top: 1px solid var(--fluo);
-    transition: 0.3s;
-  }
-
-  .tarjeta-pedagogia:hover { border-color: var(--fluo); background: #161616; }
-
-  .indicador-etapa { color: var(--fluo); font-family: monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }
-  .tarjeta-pedagogia h2 { color: var(--fluo); margin: 0; font-size: 1.7rem; }
-  .sub-etapa { color: #888; font-size: 0.85rem; text-transform: uppercase; margin: 5px 0 20px 0; letter-spacing: 1px; }
-  .descripcion-principal { font-weight: 600; line-height: 1.5; margin-bottom: 25px; color: var(--blanco); }
-
-  .lista-detalles p { color: var(--gris-claro); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
-  .etiqueta-verde { color: var(--fluo); font-size: 0.75rem; font-weight: bold; display: block; margin-bottom: 3px; letter-spacing: 1px; }
-</style>
-
-<script>
-  (function() {
-    const modalPeda = document.getElementById("modalPedagogia");
-    const btnAbrirPeda = document.getElementById("btnEnfoquePedagogico");
-    const btnCerrarPeda = document.getElementById("cerrarPedagogia");
-
-    if (btnAbrirPeda && modalPeda) {
-      btnAbrirPeda.onclick = function() {
-        modalPeda.style.display = "block";
-        document.body.style.overflow = "hidden";
-      };
-    }
-
-    if (btnCerrarPeda) {
-      btnCerrarPeda.onclick = function() {
-        modalPeda.style.display = "none";
-        document.body.style.overflow = "auto";
-      };
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modalPeda) {
-        modalPeda.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    };
-  })();
-</script>
 <section id="apps" class="section">
   <div class="container">
     <h2>Aplicaciones</h2>
@@ -259,15 +223,15 @@
       </div>
       <div class="card">
         <h3>Kantómetro</h3>
-        <p>Entrenador auditivo interactivo de lectura musical cantada, con detección de frecuencias en tiempo real.</p>
+        <p>Entrenador auditivo de lectura musical cantada, con detección de frecuencias en tiempo real.</p>
         <a href="https://kantometroklau1966.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Abrir</a>
       </div>
+      <div class="card">
+        <h3>AcordeLab</h3>
+        <p>Entrenador auditivo interactivo de reconocimiento de acordes y secuencias armónicas.</p>
+        <a href="https://akordelab.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Abrir</a>
+      </div>
     </div>
-    <div class="card">
-                    <h3>AcordeLab</h3>
-                    <p>Entrenador auditivo interactivo de reconocimiento de acordes y secuencias armónicas.</p>
-                    <a href="https://akordelab.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Abrir</a>
-                </div>
   </div>
 </section>
 
@@ -275,7 +239,7 @@
   <div class="container">
     <h2>Material Académico</h2>
     <div style="max-width: 750px;">
-      <h3 style="color: #00ffd5; font-size: 1.8rem; margin-bottom: 5px;">Audioperceptiva</h3>
+      <h3 style="color: var(--esmeralda); font-size: 1.8rem; margin-bottom: 5px;">Audioperceptiva</h3>
       <p style="opacity: 0.6; font-style: italic; margin-bottom: 20px;">Enseñar y Aprender Música en el Siglo XXI</p>
       <p style="margin-bottom: 25px; opacity: 0.9;">
         Este texto desarrolla los fundamentos pedagógicos de Audioperceptiva, abordando aspectos del entrenamiento, la práctica y la ejercitación para la formación de músicos profesionales.
@@ -289,31 +253,22 @@
   <div class="container">
     <h2>Sobre el proyecto</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
-      
       <div>
-        <p style="font-size: 1.3rem; margin-bottom: 20px; color: #00ffd5;">
+        <p style="font-size: 1.3rem; margin-bottom: 20px; color: var(--esmeralda);">
           <strong>Claudio G. Bazán</strong> es compositor, docente e investigador de la Universidad Nacional de Córdoba.
         </p>
         <p style="opacity: 0.9; margin-bottom: 20px;">
           Como <strong>especialista en Audioperceptiva y Creación Musical</strong>, su trabajo integra procesos de escucha analítica con la composición y el uso de nuevas tecnologías.
         </p>
-        <p style="opacity: 0.8; margin-bottom: 20px;">
-          Este laboratorio es el resultado de una investigación continua sobre cómo la conciencia sonora y el oído interno pueden potenciarse mediante herramientas digitales interactivas.
-        </p>
       </div>
 
       <div class="colaborar-box">
         <h3 style="color: #f5f5f5; margin-bottom: 15px;">Sostenibilidad</h3>
-        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">
-          Tu colaboración voluntaria permite financiar el desarrollo de nuevas tecnologías aplicadas a la educación musical.
-        </p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Tu colaboración voluntaria permite financiar el desarrollo de nuevas tecnologías.</p>
         <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5;">Transferencia (Banco Nación):</p>
         <div class="alias-badge">musicamusicoklau</div>
-        <p style="font-size: 0.9rem; margin-top: 20px;">
-          Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: #00ffd5; text-decoration: none;">claudiobazanunc@gmail.com</a>
-        </p>
+        <p style="font-size: 0.9rem; margin-top: 20px;">Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: var(--esmeralda); text-decoration: none;">claudiobazanunc@gmail.com</a></p>
       </div>
-
     </div>
   </div>
 </section>
@@ -323,10 +278,41 @@
 </footer>
 
 <script>
-  document.querySelector('a[href^="#"]').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+  // Script para el modal
+  (function() {
+    const modal = document.getElementById("modalPedagogia");
+    const btnAbrir = document.getElementById("abrirModalPed");
+    const btnCerrar = document.getElementById("cerrarModalPed");
+
+    if (btnAbrir) {
+      btnAbrir.onclick = function() {
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    if (btnCerrar) {
+      btnCerrar.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+  })();
+
+  // Script para scroll suave
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
   });
 </script>
