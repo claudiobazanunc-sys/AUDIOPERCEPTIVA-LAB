@@ -77,7 +77,177 @@
     <a href="#apps" class="btn">Explorar Herramientas</a>
   </div>
 </header>
+<div class="audioperceptiva-container">
+  <button id="btnEnfoquePedagogico" class="boton-cyber-pedagogia">
+    🎹 NUESTRA CONCEPCIÓN PEDAGÓGICA - <span class="subrayado">ABRIR</span>
+  </button>
+</div>
 
+<div id="modalPedagogia" class="overlay-pedagogia">
+  <div class="ventana-pedagogia">
+    <button id="cerrarPedagogia" class="boton-cerrar-x">&times;</button>
+    
+    <header class="encabezado-pedagogia">
+      <h1>🎹 NUESTRA CONCEPCIÓN PEDAGÓGICA</h1>
+      <div class="divisor-neon"></div>
+      <p class="introduccion-texto">
+        En <strong>Audioperceptiva Lab</strong>, no solo construimos herramientas digitales; proponemos un camino de maduración musical dividido en tres etapas fundamentales.
+      </p>
+    </header>
+
+    <div class="cuadricula-pedagogia">
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">1</div>
+        <h2>Entrenar</h2>
+        <h3 class="sub-etapa">(La Base Pre-musical)</h3>
+        <p class="descripcion-principal">El entrenamiento es la preparación necesaria para mejorar el desarrollo de cualquier actividad. Aquí abordamos contenidos pre-musicales indispensables.</p>
+        <div class="lista-detalles">
+          <p><span class="etiqueta-verde">EN LA PRÁCTICA:</span> Cantar escalas, memorizar células rítmicas o reconocer acordes de forma aislada, etc.</p>
+          <p><span class="etiqueta-verde">EL OBJETIVO:</span> Construir una base sólida que nos permita acceder a instancias musicales con solvencia.</p>
+          <p><span class="etiqueta-verde">FILOSOFÍA:</span> El entrenamiento sucede mejor fuera del aula, permitiendo que el tiempo de encuentro docente-estudiante se reserve para trabajar con música real.</p>
+        </div>
+      </article>
+
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">2</div>
+        <h2>Practicar</h2>
+        <h3 class="sub-etapa">(Hacer Música)</h3>
+        <p class="descripcion-principal">Llamamos práctica al trabajo con contenidos musicales dentro de las áreas de experiencia propiamente dichas. Practicar es, sencillamente, hacer música.</p>
+        <div class="lista-detalles">
+          <p><span class="etiqueta-verde">EN LA PRÁCTICA:</span> Crear, improvisar, cantar, tocar y escribir utilizando obras del repertorio universal o creaciones de los propios estudiantes.</p>
+          <p><span class="etiqueta-verde">EL OBJETIVO:</span> Abordar las métricas y estructuras a través de la vivencia artística. Lectura melódica significativa, improvisación, etc.</p>
+        </div>
+      </article>
+
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">3</div>
+        <h2>Ejercitar</h2>
+        <h3 class="sub-etapa">(El Universo Sonoro)</h3>
+        <p class="descripcion-principal">Es el punto cúspide donde trabajamos con música compuesta por artistas. El entrenamiento y la práctica están al servicio de la ejercitación.</p>
+        <div class="lista-detalles">
+          <p><span class="etiqueta-verde">EL DESAFÍO:</span> La música real no fue concebida como "ejercicio"; su complejidad es el universo que aspiramos desentrañar.</p>
+          <p><span class="etiqueta-verde">EN LA PRÁCTICA:</span> Dictados, discriminación auditiva de timbres/texturas y análisis auditivo. Evaluación de la memoria sonora y musical.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --fluo: #00ff41;
+    --oscuro: #050505;
+    --gris-claro: #d1d1d1;
+    --blanco: #ffffff;
+  }
+
+  .audioperceptiva-container { text-align: center; margin: 40px 0; font-family: sans-serif; }
+
+  .boton-cyber-pedagogia {
+    background: #000;
+    color: var(--fluo);
+    border: 1px solid var(--fluo);
+    padding: 18px 40px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+  }
+
+  .boton-cyber-pedagogia:hover {
+    background: var(--fluo);
+    color: #000;
+    box-shadow: 0 0 25px var(--fluo);
+  }
+
+  .boton-cyber-pedagogia .subrayado { text-decoration: underline; }
+
+  .overlay-pedagogia {
+    display: none;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.96);
+    z-index: 10000;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  .ventana-pedagogia {
+    max-width: 1150px;
+    margin: 40px auto;
+    background: var(--oscuro);
+    border: 1px solid #222;
+    padding: 60px 40px;
+    position: relative;
+    color: var(--blanco);
+  }
+
+  .boton-cerrar-x {
+    position: absolute; top: 20px; right: 30px;
+    background: none; border: none; color: var(--fluo);
+    font-size: 3rem; cursor: pointer;
+  }
+
+  .encabezado-pedagogia h1 { color: var(--fluo); letter-spacing: 5px; font-size: 1.8rem; margin: 0; }
+  .divisor-neon { width: 80px; height: 3px; background: var(--fluo); margin: 25px 0; }
+  .introduccion-texto { color: var(--gris-claro); font-size: 1.1rem; line-height: 1.6; max-width: 850px; margin-bottom: 40px; }
+
+  .cuadricula-pedagogia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  .tarjeta-pedagogia {
+    background: #111;
+    padding: 30px;
+    border: 1px solid #222;
+    border-top: 1px solid var(--fluo);
+    transition: 0.3s;
+  }
+
+  .tarjeta-pedagogia:hover { border-color: var(--fluo); background: #161616; }
+
+  .indicador-etapa { color: var(--fluo); font-family: monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 10px; }
+  .tarjeta-pedagogia h2 { color: var(--fluo); margin: 0; font-size: 1.7rem; }
+  .sub-etapa { color: #888; font-size: 0.85rem; text-transform: uppercase; margin: 5px 0 20px 0; letter-spacing: 1px; }
+  .descripcion-principal { font-weight: 600; line-height: 1.5; margin-bottom: 25px; color: var(--blanco); }
+
+  .lista-detalles p { color: var(--gris-claro); font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
+  .etiqueta-verde { color: var(--fluo); font-size: 0.75rem; font-weight: bold; display: block; margin-bottom: 3px; letter-spacing: 1px; }
+</style>
+
+<script>
+  (function() {
+    const modalPeda = document.getElementById("modalPedagogia");
+    const btnAbrirPeda = document.getElementById("btnEnfoquePedagogico");
+    const btnCerrarPeda = document.getElementById("cerrarPedagogia");
+
+    if (btnAbrirPeda && modalPeda) {
+      btnAbrirPeda.onclick = function() {
+        modalPeda.style.display = "block";
+        document.body.style.overflow = "hidden";
+      };
+    }
+
+    if (btnCerrarPeda) {
+      btnCerrarPeda.onclick = function() {
+        modalPeda.style.display = "none";
+        document.body.style.overflow = "auto";
+      };
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modalPeda) {
+        modalPeda.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    };
+  })();
+</script>
 <section id="apps" class="section">
   <div class="container">
     <h2>Aplicaciones</h2>
