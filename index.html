@@ -227,21 +227,24 @@
   }
 </script>
 <script>
-    // Usamos una clave específica para tu proyecto
-    const namespace = "audioperceptiva-lab-v1";
-    const key = "visitas-totales";
+    <script>
+  // Usamos una clave específica para tu proyecto
+  const namespace = "audioperceptiva-lab-v1";
+  const key = "visitas-totales";
 
-    fetch(https://api.countapi.xyz/hit/${namespace}/${key})
-        .then(response => response.json())
-        .then(data => {
-            // Formateo a 4 dígitos para mantener la estética minimalista
-            const count = data.value.toString().padStart(4, '0');
-            document.getElementById('visitas').innerText = count;
-        })
-        .catch(() => {
-            // Si la API no responde, mostramos un guión elegante
-            document.getElementById('visitas').innerText = "----";
-        });
+  // Usamos Abacus, la alternativa gratuita a CountAPI (nota las comillas invertidas ` )
+  fetch(`https://abacus.jasoncameron.dev/hit/${namespace}/${key}`)
+      .then(response => response.json())
+      .then(data => {
+          // Formateo a 4 dígitos para mantener la estética minimalista
+          const count = data.value.toString().padStart(4, '0');
+          document.getElementById('visitas').innerText = count;
+      })
+      .catch(() => {
+          // Si la API no responde, mostramos un guión elegante
+          document.getElementById('visitas').innerText = "----";
+      });
+</script>
 </script>
 </body>
 </html>
