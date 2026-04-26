@@ -4,134 +4,290 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Audioperceptiva Lab | Claudio G. Bazán</title>
+  
   <style>
-    :root { --esmeralda: #00ffd5; --fondo: #0f0f0f; --card: #1c1c1c; }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-    body { background: var(--fondo); color: #f5f5f5; line-height: 1.6; }
+    :root {
+      --esmeralda: #00ffd5;
+      --fondo-oscuro: #0f0f0f;
+      --card-bg: #1c1c1c;
+      --blanco-suave: #f5f5f5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background: var(--fondo-oscuro); color: var(--blanco-suave); line-height: 1.6; }
     .container { width: 90%; max-width: 1000px; margin: auto; }
     
-    /* HERO */
-    .hero { height: 80vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: radial-gradient(circle, #1a1a1a, #000); }
-    .hero h1 { font-size: 3rem; color: var(--esmeralda); text-shadow: 0 0 20px rgba(0,255,213,0.5); }
-    .tag { letter-spacing: 3px; text-transform: uppercase; color: var(--esmeralda); opacity: 0.7; margin-bottom: 20px; }
+    /* CABECERA (HERO) */
+    .hero { 
+        height: 100vh; 
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        text-align: center; 
+        background: radial-gradient(circle at center, #1a1a1a, #000); 
+    }
+    
+    .hero-symbol {
+        max-width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        filter: drop-shadow(0 0 15px rgba(0,255,213,0.4));
+    }
 
-    /* BOTONES PRINCIPALES */
-    .ui-container { text-align: center; padding: 40px 0; }
-    .btn-modal { background: transparent; color: var(--esmeralda); border: 1px solid var(--esmeralda); padding: 15px 30px; cursor: pointer; font-weight: bold; margin: 10px; transition: 0.3s; }
-    .btn-modal:hover { background: var(--esmeralda); color: #000; box-shadow: 0 0 20px rgba(0,255,213,0.4); }
+    .hero h1 { 
+        font-size: 3rem; 
+        color: var(--esmeralda); 
+        text-shadow: 0 0 20px rgba(0,255,213,0.6);
+        margin-bottom: 5px;
+    }
 
-    /* APPS */
-    .section { padding: 60px 0; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card { background: var(--card); padding: 25px; border-radius: 10px; border: 1px solid rgba(0,255,213,0.1); }
-    .card h3 { color: var(--esmeralda); margin-bottom: 10px; }
-    .btn-app { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--esmeralda); color: #000; text-decoration: none; border-radius: 5px; font-weight: bold; }
+    .tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.6; color: var(--esmeralda); margin-bottom: 20px; }
+    
+    /* SECCIONES GENERALES */
+    .section { padding: 100px 0; }
+    .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: var(--esmeralda); border-left: 4px solid var(--esmeralda); padding-left: 20px; }
+    .alt { background: #141414; }
+    
+    /* BOTONES DE INTERFAZ */
+    .audioperceptiva-ui-container { text-align: center; margin: 50px 0; }
+    .boton-pedagogia-trigger {
+      background: transparent;
+      color: var(--esmeralda);
+      border: 1px solid var(--esmeralda);
+      padding: 18px 40px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+    }
+    .boton-pedagogia-trigger:hover {
+      background: var(--esmeralda);
+      color: #000;
+      box-shadow: 0 0 25px rgba(0, 255, 213, 0.4);
+    }
+
+    /* TARJETAS DE APPS */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .card { background: var(--card-bg); padding: 30px; border-radius: 12px; transition: 0.3s; border: 1px solid rgba(0,255,213,0.1); }
+    .card:hover { transform: translateY(-5px); border-color: var(--esmeralda); }
+    .card h3 { color: var(--esmeralda); margin-bottom: 15px; }
+    
+    /* BOTONES */
+    .btn { display: inline-block; padding: 12px 28px; background: var(--esmeralda); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; border: none; font-size: 0.95rem; cursor: pointer; }
+    .btn:hover { background: #00c2a3; transform: scale(1.02); }
 
     /* MODALES */
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; overflow-y: auto; padding-top: 50px; }
-    .modal-content { max-width: 900px; margin: auto; background: #050505; border: 1px solid #333; padding: 40px; position: relative; border-top: 4px solid var(--esmeralda); }
-    .close-btn { position: absolute; top: 10px; right: 20px; font-size: 40px; color: var(--esmeralda); cursor: pointer; border: none; background: none; }
-    
-    .grid-modal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
-    .item-modal { background: #0a0a0a; padding: 20px; border: 1px solid #1a1a1a; }
-    .item-modal h2 { color: var(--esmeralda); font-size: 1.2rem; margin-bottom: 10px; }
-    .label { color: var(--esmeralda); font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
+    .overlay-pedagogia {
+      display: none;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.97);
+      z-index: 10000;
+      overflow-y: auto;
+      backdrop-filter: blur(10px);
+    }
+    .ventana-pedagogia {
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #050505;
+      border: 1px solid #222;
+      padding: 60px 40px;
+      position: relative;
+    }
+    .boton-cerrar-x {
+      position: absolute; top: 20px; right: 30px;
+      background: none; border: none; color: var(--esmeralda);
+      font-size: 3rem; cursor: pointer;
+    }
+    .cuadricula-pedagogia { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .tarjeta-pedagogia { background: #0a0a0a; padding: 30px; border-top: 2px solid var(--esmeralda); }
+    .indicador-etapa { color: var(--esmeralda); font-family: monospace; font-size: 1.2rem; margin-bottom: 10px; opacity: 0.6; }
+    .etiqueta-v { color: var(--esmeralda); font-size: 0.75rem; font-weight: bold; display: block; margin-bottom: 3px; }
+    .detalle-texto { color: #aaa; font-size: 0.95rem; }
 
-    .footer { text-align: center; padding: 40px; font-size: 0.8rem; opacity: 0.6; }
+    /* SOBRE EL PROYECTO Y COLABORACIÓN */
+    .colaborar-box { 
+      background: rgba(0, 255, 213, 0.03); 
+      border: 1px dashed var(--esmeralda); 
+      padding: 40px; 
+      border-radius: 20px; 
+      text-align: center; 
+    }
+    .alias-badge { 
+      display: inline-block; 
+      background: #1c1c1c; 
+      padding: 10px 20px; 
+      border-radius: 8px; 
+      border: 1px solid var(--esmeralda); 
+      margin: 15px 0; 
+      font-family: monospace; 
+      color: var(--esmeralda); 
+      font-size: 1.2rem; 
+    }
+    
+    .footer { text-align: center; padding: 60px; background: #000; font-size: 0.95rem; border-top: 1px solid #222; }
+
+    @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .ventana-pedagogia { margin: 20px; padding: 40px 20px; } }
   </style>
 </head>
+
 <body>
 
 <header class="hero">
   <div class="container">
+    <img src="logo.jpg" alt="Logo Audioperceptiva Lab" class="hero-symbol">
     <h1>Audioperceptiva Lab</h1>
     <p class="tag">Investigación • Percepción • Sonido</p>
-    <a href="#apps" style="color:white; text-decoration: none; border-bottom: 1px solid var(--esmeralda);">Explorar Herramientas</a>
+    <p style="margin: 20px 0; opacity: 0.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Plataforma de exploración y entrenamiento auditivo digital.
+    </p>
+    <a href="#apps" class="btn">Explorar Herramientas</a>
   </div>
 </header>
 
-<div class="ui-container">
-  <button class="btn-modal" onclick="openModal('modalPed')">🎹 CONCEPCIÓN PEDAGÓGICA</button>
-  <button class="btn-modal" onclick="openModal('modalInst')">🚀 GUÍA DE USO</button>
+<div class="audioperceptiva-ui-container">
+  <button onclick="gestionarModal('modalPedagogia', true)" class="boton-pedagogia-trigger">🎹 NUESTRA CONCEPCIÓN PEDAGÓGICA</button>
+  <button onclick="gestionarModal('modalInstrucciones', true)" class="boton-pedagogia-trigger">🚀 GUÍA RÁPIDA DE USO</button>
 </div>
 
-<div id="modalPed" class="modal-overlay">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal('modalPed')">&times;</button>
-    <h1 style="color: var(--esmeralda);">Concepción Pedagógica</h1>
-    <div class="grid-modal">
-      <div class="item-modal"><h2>Entrenar</h2><p>Cimientos pre-musicales: escalas y acordes aislados.</p></div>
-      <div class="item-modal"><h2>Practicar</h2><p>Hacer música: improvisación y obras de repertorio.</p></div>
-      <div class="item-modal"><h2>Ejercitar</h2><p>Universo sonoro: dictados y memoria musical real.</p></div>
+<div id="modalPedagogia" class="overlay-pedagogia">
+  <div class="ventana-pedagogia">
+    <button onclick="gestionarModal('modalPedagogia', false)" class="boton-cerrar-x">&times;</button>
+    <h1 style="color: var(--esmeralda); letter-spacing: 4px; font-size: 1.8rem;">CONCEPCIÓN PEDAGÓGICA</h1>
+    <div style="width: 70px; height: 3px; background: var(--esmeralda); margin: 25px 0;"></div>
+    <div class="cuadricula-pedagogia">
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">01. ENTRENAR</div>
+        <p class="detalle-texto">Cimientos para acceder a la música con solvencia: escalas, células rítmicas y acordes aislados.</p>
+      </article>
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">02. PRACTICAR</div>
+        <p class="detalle-texto">Hacer música viva: improvisar, crear e interpretar obras del repertorio universal.</p>
+      </article>
+      <article class="tarjeta-pedagogia">
+        <div class="indicador-etapa">03. EJERCITAR</div>
+        <p class="detalle-texto">Punto culminante: dictados, discriminación tímbrica y memoria musical del entorno real.</p>
+      </article>
     </div>
   </div>
 </div>
 
-<div id="modalInst" class="modal-overlay">
-  <div class="modal-content">
-    <button class="close-btn" onclick="closeModal('modalInst')">&times;</button>
-    <h1 style="color: var(--esmeralda);">Guía de Uso</h1>
-    <div class="grid-modal">
-      <div class="item-modal">
-        <h2>Eskalómetro</h2>
-        <p class="label">Objetivo:</p><p>Reconocimiento auditivo puro (Modo Desafío) sin apoyo visual.</p>
-      </div>
-      <div class="item-modal">
-        <h2>Kantómetro</h2>
-        <p class="label">Objetivo:</p><p>Lectura cantada precisa. Usa la referencia y entoná con precisión.</p>
-      </div>
-      <div class="item-modal">
-        <h2>AcordeLab</h2>
-        <p class="label">Objetivo:</p><p>Detectar fundamental y cualidad (Mayor/Menor) de la tríada.</p>
-      </div>
+<div id="modalInstrucciones" class="overlay-pedagogia">
+  <div class="ventana-pedagogia">
+    <button onclick="gestionarModal('modalInstrucciones', false)" class="boton-cerrar-x">&times;</button>
+    <h1 style="color: var(--esmeralda); letter-spacing: 4px; font-size: 1.8rem;">GUÍA DE USO AUDITIVO</h1>
+    <div style="width: 70px; height: 3px; background: var(--esmeralda); margin: 25px 0;"></div>
+    <div class="cuadricula-pedagogia">
+      <article class="tarjeta-pedagogia">
+        <h2 style="color: var(--esmeralda); margin-bottom:10px;">Eskalómetro</h2>
+        <p class="detalle-texto"><span class="etiqueta-v">RETO:</span> Identificar escalas solo por color en "Modo Desafío".</p>
+      </article>
+      <article class="tarjeta-pedagogia">
+        <h2 style="color: var(--esmeralda); margin-bottom:10px;">Kantómetro</h2>
+        <p class="detalle-texto"><span class="etiqueta-v">RETO:</span> Lectura cantada. Valida tu afinación tras la referencia.</p>
+      </article>
+      <article class="tarjeta-pedagogia">
+        <h2 style="color: var(--esmeralda); margin-bottom:10px;">AcordeLab</h2>
+        <p class="detalle-texto"><span class="etiqueta-v">RETO:</span> Escucha vertical de fundamentales y tipos de tríadas.</p>
+      </article>
     </div>
   </div>
 </div>
 
 <section id="apps" class="section">
   <div class="container">
-    <h2 style="color: var(--esmeralda); margin-bottom: 30px;">Aplicaciones</h2>
+    <h2>Herramientas Digitales</h2>
     <div class="cards">
       <div class="card">
         <h3>Eskalómetro</h3>
-        <p>Reconocimiento de escalas y modos.</p>
-        <a href="https://entrenadordeescalasklau1966.netlify.app/" target="_blank" class="btn-app">Abrir</a>
+        <p>Entrenamiento auditivo interactivo para el reconocimiento de escalas y modos.</p>
+        <a href="https://entrenadordeescalasklau1966.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Acceder</a>
       </div>
       <div class="card">
         <h3>Kantómetro</h3>
-        <p>Lectura musical y afinación real.</p>
-        <a href="https://kantometroklau1966.netlify.app/" target="_blank" class="btn-app">Abrir</a>
+        <p>Plataforma para el desarrollo de la lectura cantada y detección de frecuencias.</p>
+        <a href="https://kantometroklau1966.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Acceder</a>
       </div>
       <div class="card">
         <h3>AcordeLab</h3>
-        <p>Reconocimiento de estructuras armónicas.</p>
-        <a href="https://akordelab.netlify.app/" target="_blank" class="btn-app">Abrir</a>
+        <p>Entrenador para el reconocimiento de acordes y secuencias armónicas.</p>
+        <a href="https://akordelab.netlify.app/" target="_blank" class="btn" style="margin-top: 15px;">Acceder</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <h2>Producción Teórica</h2>
+    <div style="max-width: 750px;">
+      <h3 style="color: var(--esmeralda); font-size: 1.8rem; margin-bottom: 5px;">Audioperceptiva</h3>
+      <p style="opacity: 0.6; font-style: italic; margin-bottom: 20px;">Enseñar y Aprender Música en el Siglo XXI</p>
+      <p style="margin-bottom: 25px; opacity: 0.9;">
+        Exploración de los fundamentos pedagógicos sobre el entrenamiento de la escucha analítica y su aplicación en la formación profesional.
+      </p>
+      <a href="fragmento-libro.pdf" download class="btn">📖 Descargar Fragmento (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Sobre el Proyecto</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+      <div>
+        <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--esmeralda);">
+          <strong>Claudio G. Bazán</strong> es compositor, docente e investigador de la Facultad de Artes de la Universidad Nacional de Córdoba (UNC).
+        </p>
+        <p style="opacity: 0.8;">
+          Este laboratorio digital surge como respuesta a la necesidad de nuevas herramientas pedagógicas que integren la percepción auditiva con la tecnología musical contemporánea.
+        </p>
+      </div>
+      <div class="colaborar-box">
+        <h3 style="color: #f5f5f5; margin-bottom: 15px;">Sostenibilidad</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;">Podés colaborar con el mantenimiento de este espacio:</p>
+        <div class="alias-badge">musicamusicoklau</div>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: var(--esmeralda); text-decoration: none;">claudiobazanunc@gmail.com</a></p>
       </div>
     </div>
   </div>
 </section>
 
 <footer class="footer">
-  <p>© 2026 Audioperceptiva Lab — Claudio G. Bazán - UNC</p>
+  <p>© 2026 Audioperceptiva Lab — Claudio Gustavo Bazán — FA UNC</p>
 </footer>
 
 <script>
-  // Funciones simples para evitar errores de carga
-  function openModal(id) {
-    document.getElementById(id).style.display = "block";
-    document.body.style.overflow = "hidden";
+  // SISTEMA DE MODALES BLINDADO
+  function gestionarModal(id, estado) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.style.display = estado ? "block" : "none";
+      document.body.style.overflow = estado ? "hidden" : "auto";
+    }
   }
-  function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-    document.body.style.overflow = "auto";
-  }
-  // Cerrar al hacer clic fuera
+
+  // CERRAR AL CLICKEAR FUERA
   window.onclick = function(event) {
-    if (event.target.className === 'modal-overlay') {
+    if (event.target.className === 'overlay-pedagogia') {
       event.target.style.display = "none";
       document.body.style.overflow = "auto";
     }
   }
+
+  // SCROLL SUAVE
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 </script>
 
 </body>
