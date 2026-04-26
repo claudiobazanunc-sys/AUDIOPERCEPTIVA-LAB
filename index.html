@@ -17,7 +17,7 @@
     body { background: var(--fondo-oscuro); color: var(--blanco-suave); line-height: 1.6; }
     .container { width: 90%; max-width: 1000px; margin: auto; }
     
-    /* HERO SECTION */
+    /* HERO */
     .hero { 
         height: 100vh; 
         display: flex; 
@@ -27,41 +27,13 @@
         text-align: center; 
         background: radial-gradient(circle at center, #1a1a1a, #000); 
     }
-    
-    .hero-symbol {
-        max-width: 120px;
-        height: auto;
-        margin-bottom: 10px;
-        filter: drop-shadow(0 0 15px rgba(0,255,213,0.4));
-    }
-
-    .hero h1 { 
-        font-size: 3.5rem; 
-        color: var(--esmeralda); 
-        text-shadow: 0 0 20px rgba(0,255,213,0.6);
-        margin-bottom: 5px;
-    }
-
+    .hero-symbol { max-width: 120px; margin-bottom: 10px; filter: drop-shadow(0 0 15px rgba(0,255,213,0.4)); }
+    .hero h1 { font-size: 3.5rem; color: var(--esmeralda); text-shadow: 0 0 20px rgba(0,255,213,0.6); }
     .tag { font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.6; color: var(--esmeralda); margin-bottom: 25px; }
-
-    /* ESTILO INTEGRADO PARA LA INTRODUCCIÓN */
-    .hero-intro-text { 
-        margin: 20px 0; 
-        color: #a0a0a0; /* Color gris integrado, no blanco puro */
-        font-size: 1.2rem; 
-        max-width: 700px; 
-        margin-left: auto; 
-        margin-right: auto; 
-        line-height: 1.5;
-    }
+    .hero-intro-text { margin: 20px 0; color: #a0a0a0; font-size: 1.2rem; max-width: 750px; margin: 0 auto; }
     
-    /* SECCIONES */
-    .section { padding: 100px 0; }
-    .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: var(--esmeralda); border-left: 4px solid var(--esmeralda); padding-left: 20px; }
-    .alt { background: #141414; }
-    
-    /* BOTONES MODALES */
-    .audioperceptiva-ui-container { text-align: center; margin: 40px 0; }
+    /* BOTONES INTERFAZ */
+    .audioperceptiva-ui-container { text-align: center; margin: 50px 0; }
     .boton-pedagogia-trigger {
       background: transparent;
       color: var(--esmeralda);
@@ -74,45 +46,28 @@
       transition: 0.3s;
       margin: 10px;
     }
-    .boton-pedagogia-trigger:hover {
-      background: var(--esmeralda);
-      color: #000;
-      box-shadow: 0 0 25px rgba(0, 255, 213, 0.4);
-    }
+    .boton-pedagogia-trigger:hover { background: var(--esmeralda); color: #000; box-shadow: 0 0 25px rgba(0, 255, 213, 0.4); }
+
+    /* SECCIONES */
+    .section { padding: 100px 0; }
+    .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: var(--esmeralda); border-left: 4px solid var(--esmeralda); padding-left: 20px; }
+    .alt { background: #141414; }
 
     /* CARDS */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .card { background: var(--card-bg); padding: 35px; border-radius: 12px; border: 1px solid rgba(0,255,213,0.1); }
     .card h3 { color: var(--esmeralda); margin-bottom: 15px; }
-    
-    .btn { display: inline-block; padding: 12px 28px; background: var(--esmeralda); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; }
+    .btn { display: inline-block; padding: 12px 28px; background: var(--esmeralda); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px; }
 
     /* MODALES */
-    .overlay-pedagogia {
-      display: none;
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.98);
-      z-index: 10000;
-      overflow-y: auto;
-    }
-    .ventana-pedagogia {
-      max-width: 1100px;
-      margin: 40px auto;
-      background: #050505;
-      border: 1px solid #222;
-      padding: 60px 50px;
-      position: relative;
-    }
-    .boton-cerrar-x {
-      position: absolute; top: 20px; right: 30px;
-      background: none; border: none; color: var(--esmeralda);
-      font-size: 3.5rem; cursor: pointer;
-    }
-    .cuadricula-pedagogia { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
-    .tarjeta-pedagogia { background: #0a0a0a; padding: 35px; border-top: 3px solid var(--esmeralda); }
-    .detalle-texto { color: #ccc; font-size: 1rem; }
+    .overlay-pedagogia { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.98); z-index: 10000; overflow-y: auto; }
+    .ventana-pedagogia { max-width: 1100px; margin: 40px auto; background: #050505; border: 1px solid #222; padding: 60px 50px; position: relative; }
+    .boton-cerrar-x { position: absolute; top: 20px; right: 30px; background: none; border: none; color: var(--esmeralda); font-size: 3.5rem; cursor: pointer; }
+    .tarjeta-pedagogia { background: #0a0a0a; padding: 35px; border-top: 3px solid var(--esmeralda); margin-bottom: 20px; }
+    .detalle-texto { color: #ccc; font-size: 1rem; line-height: 1.6; }
 
-    .alias-badge { display: inline-block; background: #1c1c1c; padding: 12px 25px; border-radius: 8px; border: 1px solid var(--esmeralda); margin: 20px 0; color: var(--esmeralda); font-family: monospace; font-size: 1.4rem; }
+    /* INFO PERFIL */
+    .alias-badge { display: inline-block; background: #1c1c1c; padding: 12px 25px; border-radius: 8px; border: 1px solid var(--esmeralda); margin: 15px 0; color: var(--esmeralda); font-family: monospace; font-size: 1.4rem; }
     .footer { text-align: center; padding: 60px; background: #000; border-top: 1px solid #222; }
   </style>
 </head>
@@ -124,12 +79,8 @@
     <img src="logo.jpg" alt="Logo Audioperceptiva Lab" class="hero-symbol">
     <h1>Audioperceptiva Lab</h1>
     <p class="tag">Investigación • Percepción • Sonido</p>
-    
-    <p class="hero-intro-text">
-        Plataforma de exploración y entrenamiento auditivo digital.
-    </p>
-
-    <a href="#apps" class="btn">Explorar Herramientas</a>
+    <p class="hero-intro-text">Plataforma de exploración y entrenamiento auditivo digital para la formación musical profesional.</p>
+    <a href="#apps" class="btn">Explorar el Laboratorio</a>
   </div>
 </header>
 
@@ -145,15 +96,15 @@
     <div class="cuadricula-pedagogia">
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">Entrenar</h2>
-        <p class="detalle-texto">Cimientos para acceder a la música con solvencia: cantar escalas, memorizar células y reconocer acordes aislados.</p>
+        <p class="detalle-texto">Desarrollo de los cimientos para acceder a la música con solvencia. Se centra en la asimilación de estructuras básicas pre-musicales: cantar escalas, memorizar células rítmicas o reconocer acordes aislados.</p>
       </article>
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">Practicar</h2>
-        <p class="detalle-texto">Hacer música: improvisar, crear e interpretar obras del repertorio universal o composiciones propias.</p>
+        <p class="detalle-texto">Trabajo con contenidos musicales vivos. El conocimiento se aplica en la vivencia artística significativa: crear, improvisar e interpretar obras del repertorio universal o composiciones propias.</p>
       </article>
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">Ejercitar</h2>
-        <p class="detalle-texto">Universo sonoro: dictados, discriminación tímbrica y memoria musical real.</p>
+        <p class="detalle-texto">Punto culminante del proceso: desentrañar la complejidad del universo sonoro real mediante dictados complejos, discriminación tímbrica y memoria musical en contextos reales.</p>
       </article>
     </div>
   </div>
@@ -162,19 +113,19 @@
 <div id="modalInstrucciones" class="overlay-pedagogia">
   <div class="ventana-pedagogia">
     <button onclick="controlModal('modalInstrucciones', false)" class="boton-cerrar-x">&times;</button>
-    <h1 style="color: var(--esmeralda); margin-bottom: 30px;">GUÍA DE USO</h1>
+    <h1 style="color: var(--esmeralda); margin-bottom: 30px;">GUÍA DE USO DEL LAB</h1>
     <div class="cuadricula-pedagogia">
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">Eskalómetro</h2>
-        <p class="detalle-texto">Identificar escalas solo por su color sonoro en "Modo Desafío", sin apoyo visual.</p>
+        <p class="detalle-texto">Entrenamiento del oído interno. El <strong>"Modo Desafío"</strong> permite identificar la cualidad de las escalas únicamente por su color sonoro, eliminando el apoyo visual del piano.</p>
       </article>
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">Kantómetro</h2>
-        <p class="detalle-texto">Lectura cantada precisa. El sistema valida tu entonación real tras la referencia.</p>
+        <p class="detalle-texto">Precisión en la lectura cantada. Escuchá la referencia, internalizá y cantá. El sistema detecta la frecuencia en tiempo real y valida la afinación exacta.</p>
       </article>
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">AcordeLab</h2>
-        <p class="detalle-texto">Escucha de la fundamental y distinción entre tríadas Mayores y Menores.</p>
+        <p class="detalle-texto">Diseñado para la detección de <strong>acordes yuxtapuestos sin lógica tonal</strong>. Se centra en la identificación de la fundamental y la cualidad del acorde en contextos de atonalismo libre o armonía no funcional.</p>
       </article>
     </div>
   </div>
@@ -182,21 +133,21 @@
 
 <section id="apps" class="section">
   <div class="container">
-    <h2>Aplicaciones</h2>
+    <h2>Herramientas Digitales</h2>
     <div class="cards">
       <div class="card">
         <h3>Eskalómetro</h3>
-        <p>Reconocimiento de escalas y modos.</p>
+        <p>Entrenamiento auditivo para el reconocimiento y construcción de escalas y modos melódicos.</p>
         <a href="https://entrenadordeescalasklau1966.netlify.app/" target="_blank" class="btn">Abrir</a>
       </div>
       <div class="card">
         <h3>Kantómetro</h3>
-        <p>Lectura musical y afinación real.</p>
+        <p>Desarrollo de la lectura musical con motor de detección de frecuencias en tiempo real.</p>
         <a href="https://kantometroklau1966.netlify.app/" target="_blank" class="btn">Abrir</a>
       </div>
       <div class="card">
         <h3>AcordeLab</h3>
-        <p>Reconocimiento de estructuras armónicas.</p>
+        <p>Laboratorio para el reconocimiento de acordes yuxtapuestos y entrenamiento auditivo vertical.</p>
         <a href="https://akordelab.netlify.app/" target="_blank" class="btn">Abrir</a>
       </div>
     </div>
@@ -205,26 +156,17 @@
 
 <section class="section alt">
   <div class="container">
-    <h2>Producción Teórica</h2>
-    <h3 style="color: var(--esmeralda)">Audioperceptiva</h3>
-    <p style="opacity: 0.6; font-style: italic;">Enseñar y Aprender Música en el Siglo XXI</p>
-    <p style="margin: 20px 0; max-width: 750px;">Texto sobre fundamentos pedagógicos para la formación de músicos profesionales en la era digital.</p>
-    <a href="fragmento-libro.pdf" download class="btn">Descargar Fragmento (PDF)</a>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
     <h2>Sobre el Proyecto</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px;">
       <div>
-        <p style="font-size: 1.2rem; color: var(--esmeralda);"><strong>Claudio G. Bazán</strong></p>
-        <p>Compositor, docente e investigador de la FA UNC. Especialista en Audioperceptiva y creación musical, trabajando en la integración de procesos de escucha analítica con tecnologías musicales.Podés ayudar con la sostenibilidad de este espacio, más abajo encontrarás mi Alias de Banco Nación</p>
+        <p style="font-size: 1.4rem; color: var(--esmeralda); margin-bottom: 15px;"><strong>Claudio G. Bazán</strong></p>
+        <p>Especialista en <strong>Audioperceptiva y Creación Musical</strong>. Docente e investigador de la Facultad de Artes de la Universidad Nacional de Córdoba (UNC). Trabajando en herramientas digitales para el entrenamiento de músicos en procesos formativos.</p>
       </div>
       <div style="text-align: center; border: 1px dashed var(--esmeralda); padding: 30px; border-radius: 20px;">
         <h3>Sostenibilidad</h3>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Alias (Banco Nación):</p>
         <div class="alias-badge">musicamusicoklau</div>
-        <p style="font-size: 0.9rem; opacity: 0.6;">Contacto: claudiobazanunc@gmail.com</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">Contacto: claudiobazanunc@gmail.com</p>
       </div>
     </div>
   </div>
