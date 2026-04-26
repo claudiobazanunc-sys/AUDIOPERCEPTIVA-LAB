@@ -60,7 +60,7 @@
     .btn { display: inline-block; padding: 12px 28px; background: var(--esmeralda); color: #000; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; border: none; font-size: 0.95rem; cursor: pointer; }
     .btn:hover { background: #00c2a3; transform: scale(1.02); }
 
-    /* --- ESTILOS ESPECÍFICOS DEL MODAL PEDAGÓGICO --- */
+    /* --- ESTILOS ESPECÍFICOS DE MODALES --- */
     .audioperceptiva-ui-container { text-align: center; margin: 50px 0; }
 
     .boton-pedagogia-trigger {
@@ -211,6 +211,7 @@
     </div>
   </div>
 </div>
+
 <div class="audioperceptiva-ui-container" style="margin-top: -20px;">
   <button id="abrirModalInst" class="boton-pedagogia-trigger">
     🚀 GUÍA RÁPIDA DE USO - <span style="text-decoration: underline;">ABRIR</span>
@@ -225,7 +226,7 @@
       <h1>GUÍA RÁPIDA DE USO</h1>
       <div class="divisor-neon"></div>
       <p class="introduccion-texto">
-        Breve protocolo técnico para operar las herramientas del laboratorio de manera efectiva.
+        Protocolo para el desarrollo de la conciencia auditiva y la precisión musical.
       </p>
     </header>
 
@@ -233,66 +234,42 @@
       <article class="tarjeta-pedagogia">
         <div class="indicador-etapa">APP 01</div>
         <h2>Eskalómetro</h2>
-        <p class="descripcion-principal">Reconocimiento analítico de estructuras.</p>
+        <p class="descripcion-principal">Entrenamiento del oído interno y estructuras escalares.</p>
         <div class="lista-detalles">
-          <p><span class="etiqueta-v">PASOS:</span></p>
-          <p class="detalle-texto">1. Seleccioná tónica y modo. <br> 2. Escuchá la secuencia del piano virtual. <br> 3. Identificá visualmente las alturas iluminadas.</p>
+          <p><span class="etiqueta-v">EL DESAFÍO:</span></p>
+          <p class="detalle-texto">Utilizá el "Modo Desafío" para identificar las escalas únicamente por su color sonoro, prescindiendo de referencias visuales.</p>
+          <p><span class="etiqueta-v">PROCEDIMIENTO:</span></p>
+          <p class="detalle-texto">1. Seleccioná tónica y modo. <br> 2. Escuchá la secuencia para internalizar la estructura. <br> 3. Lográ el reconocimiento auditivo puro.</p>
         </div>
       </article>
 
       <article class="tarjeta-pedagogia">
         <div class="indicador-etapa">APP 02</div>
         <h2>Kantómetro</h2>
-        <p class="descripcion-principal">Afinación vocal en tiempo real.</p>
+        <p class="descripcion-principal">Lectura musical y precisión en la entonación activa.</p>
         <div class="lista-detalles">
-          <p><span class="etiqueta-v">PASOS:</span></p>
-          <p class="detalle-texto">1. Activá el micrófono. <br> 2. Usá el botón "Oír" para referencia. <br> 3. Cantá la nota; el medidor te indicará la precisión en Hz.</p>
+          <p><span class="etiqueta-v">EL OBJETIVO:</span></p>
+          <p class="detalle-texto">Desarrollar una lectura cantada precisa y consciente. La tecnología asiste para validar tu afinación real.</p>
+          <p><span class="etiqueta-v">PROCEDIMIENTO:</span></p>
+          <p class="detalle-texto">1. Activá el micrófono. <br> 2. Tomá la referencia tonal con el botón "Oír". <br> 3. Cantá la lectura propuesta buscando la máxima exactitud.</p>
         </div>
       </article>
 
       <article class="tarjeta-pedagogia">
         <div class="indicador-etapa">APP 03</div>
         <h2>AcordeLab</h2>
-        <p class="descripcion-principal">Entrenamiento de la escucha vertical.</p>
+        <p class="descripcion-principal">Identificación de fundamental y cualidad armónica.</p>
         <div class="lista-detalles">
-          <p><span class="etiqueta-v">PASOS:</span></p>
-          <p class="detalle-texto">1. Elegí nivel de complejidad. <br> 2. Escuchá el bloque armónico. <br> 3. Determiná la cualidad (Mayor/Menor/Aumentado).</p>
+          <p><span class="etiqueta-v">ANÁLISIS VERTICAL:</span></p>
+          <p class="detalle-texto">Centrado en la escucha de la fundamental y la distinción clara entre tríadas Mayores y Menores.</p>
+          <p><span class="etiqueta-v">PROCEDIMIENTO:</span></p>
+          <p class="detalle-texto">1. Escuchá el bloque armónico. <br> 2. Identificá la nota fundamental. <br> 3. Determiná si la cualidad es Mayor o Menor.</p>
         </div>
       </article>
     </div>
   </div>
 </div>
 
-<script>
-  // Lógica para el segundo modal (Instrucciones)
-  (function() {
-    const modalInst = document.getElementById("modalInstrucciones");
-    const btnAbrirInst = document.getElementById("abrirModalInst");
-    const btnCerrarInst = document.getElementById("cerrarModalInst");
-
-    if (btnAbrirInst) {
-      btnAbrirInst.onclick = function() {
-        modalInst.style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-    }
-
-    if (btnCerrarInst) {
-      btnCerrarInst.onclick = function() {
-        modalInst.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    }
-
-    // Cerrar al hacer clic afuera
-    window.addEventListener('click', function(event) {
-      if (event.target == modalInst) {
-        modalInst.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    });
-  })();
-</script>
 <section id="apps" class="section">
   <div class="container">
     <h2>Aplicaciones</h2>
@@ -348,55 +325,4 @@
         <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px;">Tu colaboración voluntaria permite financiar el desarrollo de nuevas tecnologías.</p>
         <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.5;">Transferencia (Banco Nación):</p>
         <div class="alias-badge">musicamusicoklau</div>
-        <p style="font-size: 0.9rem; margin-top: 20px;">Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: var(--esmeralda); text-decoration: none;">claudiobazanunc@gmail.com</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>© 2026 Audioperceptiva Lab — Claudio Gustavo Bazán - FA UNC -</p>
-</footer>
-
-<script>
-  // Script para el modal
-  (function() {
-    const modal = document.getElementById("modalPedagogia");
-    const btnAbrir = document.getElementById("abrirModalPed");
-    const btnCerrar = document.getElementById("cerrarModalPed");
-
-    if (btnAbrir) {
-      btnAbrir.onclick = function() {
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-      }
-    }
-
-    if (btnCerrar) {
-      btnCerrar.onclick = function() {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-    }
-  })();
-
-  // Script para scroll suave
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
-
-</body>
-</html>
+        <p style="font-size: 0.9rem; margin-top: 20px;">Contacto: <a href="mailto:claudiobazanunc@gmail.com" style="color: var(--esmeralda); text-decoration: none;">claudiobazanunc@gmail.
