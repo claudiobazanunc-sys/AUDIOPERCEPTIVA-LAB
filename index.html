@@ -2,13 +2,12 @@
 <html lang="es">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-62GWCY93FB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-62GWCY93FB');
-</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-62GWCY93FB');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Audioperceptiva Lab | Claudio G. Bazán</title>
@@ -25,7 +24,6 @@
     body { background: var(--fondo-oscuro); color: var(--blanco-suave); line-height: 1.6; }
     .container { width: 90%; max-width: 1000px; margin: auto; }
     
-    /* HERO */
     .hero { 
         height: 100vh; 
         display: flex; 
@@ -40,7 +38,6 @@
     .tag { font-size: 0.9rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.6; color: var(--esmeralda); margin-bottom: 25px; }
     .hero-intro-text { margin: 20px 0; color: #a0a0a0; font-size: 1.2rem; max-width: 750px; margin: 0 auto; }
     
-    /* BOTONES INTERFAZ */
     .audioperceptiva-ui-container { text-align: center; margin: 50px 0; }
     .boton-pedagogia-trigger {
       background: transparent;
@@ -56,12 +53,10 @@
     }
     .boton-pedagogia-trigger:hover { background: var(--esmeralda); color: #000; box-shadow: 0 0 25px rgba(0, 255, 213, 0.4); }
 
-    /* SECCIONES */
     .section { padding: 100px 0; }
     .section h2 { margin-bottom: 40px; font-size: 2.2rem; color: var(--esmeralda); border-left: 4px solid var(--esmeralda); padding-left: 20px; }
     .alt { background: #141414; }
 
-    /* CARDS */
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .card { background: var(--card-bg); padding: 35px; border-radius: 12px; border: 1px solid rgba(0,255,213,0.1); }
     .card h3 { color: var(--esmeralda); margin-bottom: 15px; }
@@ -69,14 +64,12 @@
     .btn-outline { background: transparent; color: var(--esmeralda); border: 1px solid var(--esmeralda); }
     .btn-outline:hover { background: var(--esmeralda); color: #000; }
 
-    /* MODALES */
     .overlay-pedagogia { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.98); z-index: 10000; overflow-y: auto; }
     .ventana-pedagogia { max-width: 1100px; margin: 40px auto; background: #050505; border: 1px solid #222; padding: 60px 50px; position: relative; }
     .boton-cerrar-x { position: absolute; top: 20px; right: 30px; background: none; border: none; color: var(--esmeralda); font-size: 3.5rem; cursor: pointer; }
     .tarjeta-pedagogia { background: #0a0a0a; padding: 35px; border-top: 3px solid var(--esmeralda); margin-bottom: 20px; }
     .detalle-texto { color: #ccc; font-size: 1rem; line-height: 1.6; }
 
-    /* INFO PERFIL */
     .alias-badge { display: inline-block; background: #1c1c1c; padding: 12px 25px; border-radius: 8px; border: 1px solid var(--esmeralda); margin: 15px 0; color: var(--esmeralda); font-family: monospace; font-size: 1.4rem; }
     .footer { text-align: center; padding: 60px; background: #000; border-top: 1px solid #222; }
     
@@ -95,8 +88,7 @@
         color: #50C878;
         font-weight: bold;
         margin-left: 8px;
-        text-shadow: 0 0 5px rgba(80, 200, 120, 0.4), 
-                     0 0 10px rgba(80, 200, 120, 0.2);
+        text-shadow: 0 0 5px rgba(80, 200, 120, 0.4), 0 0 10px rgba(80, 200, 120, 0.2);
         font-family: 'Courier New', monospace;
     }
   </style>
@@ -159,7 +151,7 @@
       </article>
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">AcordeLab</h2>
-        <p class="detalle-texto">Diseñado para la detección de <strong>acordes yuxtapuestos sin lógica tonal</strong>. Se centra en la identificación de la fundamental y la cualidad del acorde en contextos de armonía no funcional.</p>
+        <p class="detalle-texto">Diseñado para la detección de acordes yuxtapuestos sin lógica tonal. Se centra en la identificación de la fundamental y la cualidad del acorde en contextos de armonía no funcional.</p>
       </article>
       <article class="tarjeta-pedagogia">
         <h2 style="color: var(--esmeralda)">Mozart Lab</h2>
@@ -218,14 +210,12 @@
       <div>
         <p style="font-size: 1.4rem; color: var(--esmeralda); margin-bottom: 15px;"><strong>Claudio G. Bazán</strong></p>
         <p>Especialista en <strong>Audioperceptiva y Creación Musical</strong>. Docente, compositor e investigador de la Facultad de Artes de la Universidad Nacional de Córdoba (UNC). Trabajando en herramientas digitales para el entrenamiento de músicos en procesos formativos.</p>
-        
         <div style="margin-top: 40px; padding-top: 25px; border-top: 1px solid rgba(0,255,213,0.2);">
           <p style="color: var(--esmeralda); font-weight: bold; margin-bottom: 10px;">AUDIOPERCEPTIVA: Enseñar y Aprender Música en el Siglo XXI</p>
           <p style="font-size: 0.95rem; opacity: 0.8;">Fundamentación pedagógica y conceptual sobre educación auditiva contemporánea.</p>
           <a href="fragmento-libro.pdf" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; padding: 8px 20px;">Descargar Fragmento (PDF)</a>
         </div>
       </div>
-      
       <div style="text-align: center; border: 1px dashed var(--esmeralda); padding: 30px; border-radius: 20px;">
         <h3>Sostenibilidad</h3>
         <p style="font-size: 0.9rem; margin-top: 10px;">Alias (Banco Nación):</p>
@@ -241,7 +231,7 @@
   <div class="counter-container">
     <span>Visitas</span>
     <span id="visitas">0000</span>
-</div>
+  </div>
 </footer>
 
 <script>
@@ -262,7 +252,6 @@
 <script>
   const namespace = "audioperceptiva-lab-v1";
   const key = "visitas-totales";
-
   fetch(`https://abacus.jasoncameron.dev/hit/${namespace}/${key}`)
       .then(response => response.json())
       .then(data => {
